@@ -9,7 +9,7 @@ app.config['MYSQL_PASSWORD'] = 'gqg7zYPphz'
 app.config['MYSQL_DB'] = 'sql12613064'
  
 mysql = MySQL(app)
- 
+
 @app.route('/')
 def form():
     return 'Hello, Brother!'
@@ -44,6 +44,9 @@ def login():
 
         mysql.connection.commit()
         cursor.close()
-        return f"Done!!"
+        return {
+            'content': content,
+            'success': True
+        }
  
-app.run(host='localhost', port=5000)
+app.run(host='localhost', port=8000)
